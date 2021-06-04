@@ -9,6 +9,7 @@
 <script>
 // @ is an alias to /src
 import EventCard from "@/components/EventCard.vue";
+import EventService from "@/services/EventService.js";
 
 export default {
   name: "EventList",
@@ -17,49 +18,17 @@ export default {
   },
   data() {
     return {
-      events: [
-        {
-          id: 5928101,
-          category: "mission class",
-          title: "Basic Strength Test",
-          description: "Find out what your limits are",
-          location: "Ft Lauderdale",
-          date: "July 11, 2021",
-          time: "4:30",
-          organizer: "Gabe Sage"
-        },
-        {
-          id: 4539076,
-          category: "mission kids",
-          title: "Beginning Kids",
-          description: "Kids learn the fundamentals",
-          location: "Miami",
-          date: "July 11, 2021",
-          time: "5:30",
-          organizer: "Gabe Sage"
-        },
-        {
-          id: 5829047,
-          category: "mission intermediate",
-          title: "Intermediate Training",
-          description: "Learn new levels of endurance",
-          location: "Ft Lauderdale",
-          date: "July 18, 2021",
-          time: "4:30",
-          organizer: "Gabe Sage"
-        },
-        {
-          id: 9923100,
-          category: "mission advanced",
-          title: "Advanced Training",
-          description: "Find out what your limits are",
-          location: "Ft Lauderdale",
-          date: "June 18, 2021",
-          time: "5:30",
-          organizer: "Gabe Sage"
-        }
-      ]
+      events: null
     };
+  },
+  created() {
+    EventService.getEvents()
+      .then(response => {
+        this.events = response.data;
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 };
 </script>
@@ -71,3 +40,17 @@ export default {
   align-items: center;
 }
 </style>
+
+// [ // { // id: 5928101, // category: "mission class", // title: "Basic
+Strength Test", // description: "Find out what your limits are", // location:
+"Ft Lauderdale", // date: "July 11, 2021", // time: "4:30", // organizer: "Gabe
+Sage" // }, // { // id: 4539076, // category: "mission kids", // title:
+"Beginning Kids", // description: "Kids learn the fundamentals", // location:
+"Miami", // date: "July 11, 2021", // time: "5:30", // organizer: "Gabe Sage" //
+}, // { // id: 5829047, // category: "mission intermediate", // title:
+"Intermediate Training", // description: "Learn new levels of endurance", //
+location: "Ft Lauderdale", // date: "July 18, 2021", // time: "4:30", //
+organizer: "Gabe Sage" // }, // { // id: 9923100, // category: "mission
+advanced", // title: "Advanced Training", // description: "Find out what your
+limits are", // location: "Ft Lauderdale", // date: "June 18, 2021", // time:
+"5:30", // organizer: "Gabe Sage" // } // ]

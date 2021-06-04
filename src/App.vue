@@ -1,7 +1,7 @@
 <template>
   <div id="nav">
-    <router-link to="/">Events</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link :to="{ name: 'EventList' }">Events</router-link> |
+    <router-link :to="{ name: 'About' }">About</router-link>
   </div>
   <router-view />
 </template>
@@ -12,7 +12,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #ffc02a;
+  background-color: #000205;
 }
 
 #nav {
@@ -21,11 +22,11 @@
 
 #nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #1379df;
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: #ffc02a;
 }
 h4 {
   font-size: 20px;
