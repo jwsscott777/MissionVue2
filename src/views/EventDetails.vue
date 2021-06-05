@@ -1,8 +1,10 @@
 <template>
-  <div v-if="event">
+  <div class="container" v-if="event">
+    <img alt="Vue logo" src="../assets/logo3.png" />
     <h1>{{ event.title }}</h1>
     <p>{{ event.time }} on {{ event.date }} @ {{ event.location }}</p>
     <p>{{ event.description }}</p>
+    <button @click="eventReg()">Register for Event</button>
   </div>
 </template>
 
@@ -23,8 +25,18 @@ export default {
       .catch(error => {
         console.log(error);
       });
+  },
+  methods: {
+    eventReg() {
+      console.log("clicked");
+      this.$router.push("/FormPage");
+    }
   }
 };
 </script>
 
-<style></style>
+<style scoped>
+.container {
+  height: 80vh;
+}
+</style>

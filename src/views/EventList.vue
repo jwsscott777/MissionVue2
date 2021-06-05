@@ -1,7 +1,7 @@
 <template>
-  <h1>Mission Events</h1>
   <div class="events">
-    <img alt="Vue logo" src="../assets/logo.png" />
+    <img alt="Vue logo" src="../assets/logo3.png" />
+    <h1>Mission Events</h1>
     <EventCard v-for="event in events" :key="event.id" :event="event" />
   </div>
 </template>
